@@ -37,7 +37,7 @@ const Course = ({ params }: { params: { slug: number } }) => {
           <div className="flex flex-col-reverse lg:flex-row">
             {/* left side */}
             <div className="">
-              <h1 className="font-bold py-2">{course.title}</h1>
+              <h1 className="font-bold pt-4 text-lg ">{course.title}</h1>
               <p className="text-sm py-2 text-muted-foreground">
                 {course.introduction}
               </p>
