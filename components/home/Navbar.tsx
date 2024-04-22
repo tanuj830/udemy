@@ -134,9 +134,9 @@ const Navbar = () => {
                             ? "text-popover-foreground font-bold underline underline-offset-8"
                             : "text-inherit"
                         }`}
-                        href="/blog"
+                        href="/courses"
                       >
-                        Blog
+                        Courses
                       </Link>
                     </div>
                     <div className="text-center">
@@ -171,33 +171,6 @@ const Navbar = () => {
                         Chill Zone
                       </Link>
                     </div>
-                  </div>
-                  {/* icons */}
-                  <div className="flex items-center justify-center w-full gap-6 md:gap-8">
-                    <Link
-                      className="hover:scale-110  transition-all duration-300 text-3xl"
-                      href="https://github.com/tanuj830"
-                    >
-                      <AiFillGithub />
-                    </Link>
-                    <Link
-                      className="hover:scale-110  transition-all duration-300 text-3xl"
-                      href="https://www.linkedin.com/in/tanuj-bhatt-85a2511b5/"
-                    >
-                      <AiFillLinkedin />
-                    </Link>
-                    <Link
-                      className="hover:scale-110  transition-all duration-300 text-3xl"
-                      href="https://leetcode.com/tanujdotcpp/"
-                    >
-                      <SiLeetcode />
-                    </Link>
-                    <Link
-                      className="hover:scale-110  transition-all duration-300 text-3xl"
-                      href="https://www.instagram.com/aka_tanuj/"
-                    >
-                      <AiFillInstagram />
-                    </Link>
                   </div>
                 </div>
               </div>
