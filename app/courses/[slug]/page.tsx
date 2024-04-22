@@ -26,7 +26,7 @@ const Course = ({ params }: { params: { slug: number } }) => {
         </div>
 
         {/* price section for mobile */}
-        <div className="fixed bottom-1 left-1 right-1  lg:hidden">
+        <div className="fixed bottom-2 left-3 right-3  lg:hidden">
           <Button className="w-full flex gap-1 items-center">
             <span>Buy Course at </span>
             <span className="font-semibold"> ₹{course.price}</span>
