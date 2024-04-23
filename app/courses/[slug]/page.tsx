@@ -8,6 +8,7 @@ import { GrUpdate } from "react-icons/gr";
 import ShowRoute from "@/components/ShowRoute";
 import { Button } from "@/components/ui/button";
 import CourseOutline from "@/components/courses/CourseOutline";
+import { Input } from "@/components/ui/input";
 
 const Course = ({ params }: { params: { slug: number } }) => {
   const [course, setCourse] = React.useState({} as any);
@@ -34,11 +35,11 @@ const Course = ({ params }: { params: { slug: number } }) => {
         </div>
 
         <div>
-          <div className="flex flex-col-reverse lg:flex-row">
+          <div className="flex flex-col-reverse lg:flex-row lg:gap-10">
             {/* left side */}
-            <div className="">
+            <div className="w-full ">
               <h1 className="font-bold pt-4 text-lg ">{course.title}</h1>
-              <p className="text-sm py-2 text-muted-foreground">
+              <p className="text-sm py-2 text-muted-foreground lg:w-[70%]">
                 {course.introduction}
               </p>
               <div className="mt-2">
@@ -68,10 +69,26 @@ const Course = ({ params }: { params: { slug: number } }) => {
               <CourseOutline content={course.content} />
             </div>
             {/* right side */}
-            <div className="h-fit ">
-              <video className="w-full h-fit " controls>
-                <source src={course.video} />
-              </video>
+            <div className="h-fit flex justify-end w-[40%] bg-yellow-50">
+              <div className="flex flex-col gap-2 p-5  bg-muted rounded-md">
+                <video className="w-full h-fit " controls>
+                  <source src={course.video} />
+                </video>
+                <p className="text-sm">
+                  Subscribe to{" "}
+                  <span className="font-semibold ">{course.title}</span>
+                </p>
+                <div className="flex flex-col gap-3 mt-5">
+                  <div className="flex gap-1">
+                    <Input placeholder="Enter Coupon Code" />
+                    <Button className="">Apply</Button>
+                  </div>
+                  <Button className="w-full flex gap-1 items-center">
+                    <span>Buy Course at </span>
+                    <span className="font-semibold"> ₹{course.price}</span>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

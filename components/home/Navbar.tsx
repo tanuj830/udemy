@@ -8,12 +8,25 @@ import {
 } from "react-icons/ai";
 import { SiLeetcode } from "react-icons/si";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { RiMenu4Line } from "react-icons/ri";
 import { usePathname } from "next/navigation";
 import { Ghost, GhostIcon } from "lucide-react";
 import { FaGhost } from "react-icons/fa";
+import {
+  LoginLink,
+  LogoutLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const path = usePathname();
@@ -44,6 +57,13 @@ const Navbar = () => {
   const closeMenu = () => {
     setShowMenu(false);
   };
+
+  //Authentication
+  const { isAuthenticated } = useKindeBrowserClient();
+  const { user } = useKindeBrowserClient();
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user, isAuthenticated]);
 
   return (
     <>
@@ -205,6 +225,33 @@ const Navbar = () => {
               </Link>
             ))}
             <ThemeButton />
+            {isAuthenticated === true && user != null ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <img
+                    className="w-8  rounded-full"
+                    src={user.picture!}
+                    alt=""
+                  />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-40">
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <Link href="/profile">
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                  </Link>
+                  <Link href="/admin/course/all">
+                    <DropdownMenuItem>Admin Pannel</DropdownMenuItem>
+                  </Link>
+                  <DropdownMenuSeparator />
+                  <LogoutLink>
+                    <DropdownMenuItem>Sign out</DropdownMenuItem>
+                  </LogoutLink>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <LoginLink>Log in</LoginLink>
+            )}
           </div>
         </div>
       </div>
