@@ -213,7 +213,10 @@ export function DataTableDemo() {
           className="max-w-sm"
         />
         <Button>
-          <Link href="#" className="text-xs flex items-center gap-2">
+          <Link
+            href="/admin/course/create"
+            className="text-xs flex items-center gap-2"
+          >
             <PlusCircle width={16} />
             <span>New Course</span>
           </Link>

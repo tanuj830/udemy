@@ -12,7 +12,7 @@ import React from "react";
 const links = [
   {
     name: "Courses",
-    path: "/admin/courses/all",
+    path: "/admin/course/all",
     icon: BookOpen,
   },
   {
