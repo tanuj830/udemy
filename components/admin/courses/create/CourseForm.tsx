@@ -80,7 +80,7 @@ const CourseForm = () => {
             </div>
             <Select>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Theme" />
+                <SelectValue placeholder="Theme"
               </SelectTrigger>
               <SelectContent>
                 {languages.map((lang, ind) => (
