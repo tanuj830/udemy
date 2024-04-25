@@ -5,23 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Delete, DeleteIcon } from "lucide-react";
 import React from "react";
 import { RiDeleteBack2Fill, RiDeleteBin2Fill } from "react-icons/ri";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import InputLang from "./FormComponents.tsx/InputLang";
+import Prerequisites from "./FormComponents.tsx/Prerequisites";
 
-const languages = [
-  "English",
-  "Spanish",
-  "French",
-  "German",
-  "Chinese",
-  "Japanese",
-  "Other",
-];
 const CourseForm = () => {
   const [description, setDescription] = React.useState("");
   const [author, setAuthor] = React.useState("");
@@ -70,36 +56,7 @@ const CourseForm = () => {
             <Textarea placeholder="Description" />
           </div>
         </div>
-        <div className="bg-muted p-3 md:p-5 rounded-lg ">
-          <div className="flex flex-col">
-            <div className="mb-4">
-              <p className="text-sm  font-medium pb-1">Level</p>
-              <p className="text-xs text-muted-foreground">
-                You are uploading course for which level of people.
-              </p>
-            </div>
-            <Select>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                {languages.map((lang, ind) => (
-                  <SelectItem value={lang} key={ind}>
-                    {lang}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        {/* <SelectItem value="light">English </SelectItem>
-                <SelectItem value="light">Spanish </SelectItem>
-                <SelectItem value="light">French </SelectItem>
-                <SelectItem value="light"> German</SelectItem>
-                <SelectItem value="light">Chinese </SelectItem>
-                <SelectItem value="light">Japanese </SelectItem>
-                <SelectItem value="light"> Hindi</SelectItem>
-                <SelectItem value="light"> Other</SelectItem> */}
+        <InputLang />
         <div className="bg-muted p-3 md:p-5 rounded-lg ">
           <div className="flex flex-col">
             <span className="text-sm  font-medium pb-1">Tags</span>
@@ -112,12 +69,7 @@ const CourseForm = () => {
             <Textarea placeholder="Description" />
           </div>
         </div>
-        <div className="bg-muted p-3 md:p-5 rounded-lg ">
-          <div className="flex flex-col">
-            <span className="text-sm  font-medium pb-1">Prerequisites</span>
-            <Textarea placeholder="Description" />
-          </div>
-        </div>
+        <Prerequisites />
       </form>
       <div></div>
     </div>
