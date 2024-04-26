@@ -11,7 +11,9 @@ const CreateCourse = () => {
       {title.length <= 0 ? (
         <CourseName setTitle={setTitle} />
       ) : (
-        <div className="w-full h-full">{/* <CourseForm /> */}</div>
+        <div className="w-full h-full">
+          <CourseForm />
+        </div>
       )}
     </div>
   );
