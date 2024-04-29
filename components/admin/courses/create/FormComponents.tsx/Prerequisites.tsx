@@ -21,7 +21,7 @@ const Prerequisites = () => {
   const ShowAddPreqModal = () => {
     setShowModal(true);
   };
-  const addReq = (e: any) => {
+  const addReq = (e: any) => 
     e.preventDefault();
     console.log("tanujjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
     if (title.length > 0 && disp.length > 0) {
