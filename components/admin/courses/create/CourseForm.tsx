@@ -10,6 +10,7 @@ import Prerequisites from "./FormComponents.tsx/Prerequisites";
 
 const CourseForm = () => {
   const [description, setDescription] = React.useState("");
+  const [description, setDescription] = React.useState("");
   const [author, setAuthor] = React.useState("");
   const [price, setPrice] = React.useState("");
   return (
