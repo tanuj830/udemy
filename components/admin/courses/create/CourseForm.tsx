@@ -16,7 +16,7 @@ const CourseForm = () => {
     <div className="p-5">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-lg font-semibold">Create 
+          <h1 className="text-lg font-semibold">Create Course</h1>
         </div>
         <div className="flex items-center gap-2">
           <Button size={"sm"} className="">
