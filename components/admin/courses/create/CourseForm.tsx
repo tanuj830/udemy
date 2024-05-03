@@ -9,7 +9,7 @@ import InputLang from "./FormComponents.tsx/InputLang";
 import Prerequisites from "./FormComponents.tsx/Prerequisites";
 
 const CourseForm = () => {
-  const [description, setDescription] = React.useState("");
+  const [description, setDescription] = 
   const [author, setAuthor] = React.useState("");
   const [price, setPrice] = React.useState("");
   return (
