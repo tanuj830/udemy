@@ -96,7 +96,7 @@ const Prerequisites = () => {
                   )
                 )}
               </div>
-            ) : 
+            ) : null}
           </div>
           {/* modal */}
           {showModal ? (
