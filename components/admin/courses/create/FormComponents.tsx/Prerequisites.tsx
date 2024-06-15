@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { FileWarning, Plus } from "lucide-react";
+import { BadgeX, Delete, DeleteIcon, FileWarning, Plus } from "lucide-react";
 import React from "react";
+import { GrBucket } from "react-icons/gr";
 
 type Modal = {
   title: string;
@@ -23,13 +24,15 @@ const Prerequisites = () => {
   };
   const addReq = (e: any) => {
     e.preventDefault();
-    console.log("tanujjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
     if (title.length > 0 && disp.length > 0) {
       const obj = {
         title: title,
         disp: disp,
       };
-      setPrerequisites(obj);
+      let tempArray = prerequisites;
+      tempArray.push(obj);
+      setPrerequisites(tempArray);
+
       toast({
         variant: "default",
         title: "Success",
@@ -53,47 +56,74 @@ const Prerequisites = () => {
         <div className="flex flex-col">
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm  font-medium pb-1">Prerequisites</span>
-            <div>
+            <div className="flex items-center ">
               <span
                 onClick={ShowAddPreqModal}
-                className="text-sm flex items-center gap-2"
+                className="text-sm flex items-center gap-1"
               >
-                <Plus className="w-5" /> Prerequisite
+                <Plus className="w-5 h-4 " /> Prerequisite
               </span>
             </div>
           </div>
+
+          {/* Added prerequisties */}
+          <div>
+            {prerequisites.length > 0 ? (
+              <div className="flex flex-col gap-3 mb-6">
+                {prerequisites.map(
+                  (
+                    pre: {
+                      title: string;
+
+                      disp: string;
+                    },
+                    ind: React.Key | null | undefined
+                  ) => (
+                    <div className="bg-primary/5 flex cursor-pointer">
+                      <div
+                        className=" flex flex-col gap-1 p-3 rounded-md w-full"
+                        key={ind}
+                      >
+                        <span className="text-sm font-medium">{pre.title}</span>
+                        <span className="text-xs">{pre.disp}</span>
+                      </div>
+                      <div className="w-12 p-3 flex justify-center items-center border-l border-primary/10 shadow-sm">
+                        <span>
+                          <BadgeX className="w-5 h-5 text-destructive " />
+                        </span>
+                      </div>
+                    </div>
+                  )
+                )}
+              </div>
+            ) : 
+          </div>
           {/* modal */}
           {showModal ? (
-            <div>
-              {/* previous added prequisites */}
-              {/* {
-                <div>
-                  {prerequisites?.map((p, ind) => (
-                    <div key={ind}>
-                      {p.title}
-                      {p.disp}
-                    </div>
-                  ))}
-                </div>
-              } */}
-
-              <Input
-                placeholder="Title"
-                className=""
-                onChange={(e) => settitle(e.target.value)}
-              />
-              <Textarea
-                placeholder="Description"
-                onChange={(e) => setdisp(e.target.value)}
-              />
-              <Button
-                className="w-fit flex text-sm items-center gap-1"
-                size={"sm"}
-                onClick={(e) => addReq(e)}
-              >
-                <Plus className="w-4" />
-                Add
-              </Button>
+            <div className="flex flex-col gap-2">
+              <div>
+                <Input
+                  placeholder="Title"
+                  className=""
+                  onChange={(e) => settitle(e.target.value)}
+                />
+              </div>
+              <div>
+                <Textarea
+                  placeholder="Description"
+                  onChange={(e) => setdisp(e.target.value)}
+                />
+              </div>
+              <div>
+                <Button
+                  className="w-fit flex text-sm items-center gap-1"
+                  size={"sm"}
+                  onClick={(e) => addReq(e)}
+                >
+                  <Plus className="w-4" />
+                  Add
+                </Button>
+              </div>
             </div>
           ) : (
             <small className="text-muted-foreground">Nothing to show</small>
