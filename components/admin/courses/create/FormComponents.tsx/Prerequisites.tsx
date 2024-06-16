@@ -108,12 +108,12 @@ const Prerequisites = () => {
                   onChange={(e) => settitle(e.target.value)}
                 />
               </div>
-              <d>
+              <div>
                 <Textarea
                   placeholder="Description"
                   onChange={(e) => setdisp(e.target.value)}
                 />
-              </d
+              </div>
               <div>
                 <Button
                   className="w-fit flex text-sm items-center gap-1"
