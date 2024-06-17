@@ -113,7 +113,7 @@ const Prerequisites = () => {
                   placeholder="Description"
                   onChange={(e) => setdisp(e.target.value)}
                 />
-              </div>
+              </
               <div>
                 <Button
                   className="w-fit flex text-sm items-center gap-1"
